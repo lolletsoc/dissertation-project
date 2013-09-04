@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fyp.resilience.view.ConnectionView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/connection_view_item_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scrollHorizontally="true"
+        android:textSize="20sp"
+        android:textIsSelectable="false" />
+
+    <ProgressBar
+        android:id="@+id/connection_view_item_progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/connection_view_item_type"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:id="@+id/connection_view_item_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:scrollHorizontally="true"
+        android:textIsSelectable="false" />
+
+</com.fyp.resilience.view.ConnectionView>

@@ -1,0 +1,7 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+	
+    <style name="ResilTheme" parent="@android:style/Theme.Holo">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+</resources>

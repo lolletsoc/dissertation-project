@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_category_title_connections" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_wifi_only"
+            android:persistent="true"
+            android:summary="@string/pref_summary_wifi_only"
+            android:title="@string/pref_name_wifi_only" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_title_advanced" >
+        <ListPreference
+            android:defaultValue="4194304"
+            android:entries="@array/piece_size_list_entry"
+            android:entryValues="@array/piece_size_list_value"
+            android:key="pref_piece_size"
+            android:persistent="true"
+            android:summary="@string/pref_summary_piece_size"
+            android:title="@string/pref_name_title_piece_size" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

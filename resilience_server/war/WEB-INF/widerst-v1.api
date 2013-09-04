@@ -1,0 +1,112 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://resilience-fyp.appspot.com/_ah/api",
+  "name" : "widerst",
+  "version" : "v1",
+  "description" : "Endpoint for DataPieces to be posted",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://resilience-fyp.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "widerst.pieces.insert" : {
+      "path" : "pieces",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.fyp.widerst.endpoint.DataPieceEndpoint.insertDataPiece",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "DataPiecePartial" : {
+        "id" : "DataPiecePartial",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "type" : "string"
+          },
+          "deviceId" : {
+            "type" : "string"
+          },
+          "retry" : {
+            "type" : "boolean"
+          },
+          "pieceNo" : {
+            "type" : "integer"
+          },
+          "hash" : {
+            "type" : "string"
+          },
+          "wholeParent" : {
+            "$ref" : "DataWholePartial"
+          }
+        }
+      },
+      "DataWholePartial" : {
+        "id" : "DataWholePartial",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "type" : "string"
+          },
+          "fileName" : {
+            "type" : "string"
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "numOfPieces" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "PostResponse" : {
+        "id" : "PostResponse",
+        "type" : "object",
+        "properties" : {
+          "postUrl" : {
+            "type" : "string"
+          },
+          "success" : {
+            "type" : "integer"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.fyp.widerst.endpoint.DataPieceEndpoint.insertDataPiece" : {
+        "request" : {
+          "$ref" : "DataPiecePartial"
+        },
+        "response" : {
+          "$ref" : "PostResponse"
+        }
+      }
+    }
+  }
+}

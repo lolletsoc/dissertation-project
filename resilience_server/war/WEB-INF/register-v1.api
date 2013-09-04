@@ -1,0 +1,118 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://resilience-fyp.appspot.com/_ah/api",
+  "name" : "register",
+  "version" : "v1",
+  "description" : "Endpoint for clients to register for a unique ID abstracted from their GCM ID",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://resilience-fyp.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "register.devices.delete" : {
+      "path" : "devices/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.fyp.widerst.endpoint.DeviceInfoEndpoint.removeDeviceInfo",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "register.devices.insert" : {
+      "path" : "devices",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.fyp.widerst.endpoint.DeviceInfoEndpoint.insertDeviceInfo",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "register.devices.update" : {
+      "path" : "devices",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.fyp.widerst.endpoint.DeviceInfoEndpoint.updateDeviceInfo",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "DeviceInfo" : {
+        "id" : "DeviceInfo",
+        "type" : "object",
+        "properties" : {
+          "deviceRegistrationId" : {
+            "type" : "string"
+          },
+          "serverRegistrationId" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.fyp.widerst.endpoint.DeviceInfoEndpoint.removeDeviceInfo" : {
+        "response" : {
+          "$ref" : "DeviceInfo"
+        }
+      },
+      "com.fyp.widerst.endpoint.DeviceInfoEndpoint.insertDeviceInfo" : {
+        "request" : {
+          "$ref" : "DeviceInfo"
+        },
+        "response" : {
+          "$ref" : "DeviceInfo"
+        }
+      },
+      "com.fyp.widerst.endpoint.DeviceInfoEndpoint.updateDeviceInfo" : {
+        "request" : {
+          "$ref" : "DeviceInfo"
+        },
+        "response" : {
+          "$ref" : "DeviceInfo"
+        }
+      }
+    }
+  }
+}

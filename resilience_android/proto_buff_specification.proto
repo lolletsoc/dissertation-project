@@ -1,0 +1,27 @@
+// Proto Buff Specification
+message PieceUploadRequest {
+	required DataWholeMessage dataWholeMessage = 1;
+	required DataPieceMessage dataPieceMessage = 2;
+}
+
+message DataWholeMessage {
+	required string key = 1;
+	required int32 no_pieces = 2;
+	required string file_name = 3;
+}
+
+message DataPieceMessage {
+	required int32 piece_no = 1;
+	required string md5_hash = 2;
+	required int64 piece_size = 3; 
+}
+
+message PieceUploadReply {
+	enum Result {
+		SUCCESS = 0;
+		NOT_REQUIRED = 1;
+		NONE_REQUIRED = 2;
+		ERROR = 3;
+	}
+	required Result result = 1 [default = ERROR];
+}

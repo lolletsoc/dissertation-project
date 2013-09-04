@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">resilience</string>
+
+    <!-- Activity titles -->
+    <string name="title_activity_licence">Licences</string>
+    <string name="title_activity_settings">Settings</string>
+    
+    <!-- Dialog strings -->
+	<string name="download_alert_yes_button">Yes</string>
+	<string name="download_alert_no_button">No</string>
+	<string name="download_alert_question">Are you sure you wish to download the file?</string>
+	<string name="download_in_progress">Download already in progress</string>
+	<string name="run_file_no_applications">No applications can support this file</string>
+
+    <!-- Menu items -->
+    <string name="menu_item_add">Add</string>
+    <string name="menu_item_record">Record</string>
+    <string name="menu_item_licences">Licences</string>
+    <string name="menu_item_settings">Settings</string>
+
+    <!-- Tab strings -->
+    <string name="tab_item_files">Files</string>
+    <string name="tab_item_connections">Connections</string>
+    <string name="tab_item_clients">Clients</string>
+
+    <!-- Chooser dialog -->
+    <string name="file_chooser_text">Pick a file with</string>
+
+    <!-- Stats strings -->
+    <string name="stats_label_online_string">ONLINE:</string>
+    <string name="stats_label_current_connections_string">CURRENT CONNECTIONS:</string>
+    <string name="stats_label_wifi_connections_string">WI-FI CONNECTIONS:</string>
+
+    <!-- SETTINGS PREFERENCES -->
+    <string name="pref_category_title_connections">Connection</string>
+    <string name="pref_category_title_advanced">Advanced</string>
+
+    <!-- Wifi Only -->
+    <string name="pref_name_wifi_only">Wi-Fi Only</string>
+    <string name="pref_summary_wifi_only">Set to ensure the app will only communicate via Wi-Fi</string>
+
+    <!-- Piece Size -->
+    <string name="pref_name_title_piece_size">Piece Size</string>
+    <string name="pref_summary_piece_size">Defines how large each piece shall be</string>
+
+</resources>

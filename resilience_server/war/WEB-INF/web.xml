@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<servlet>
+		<servlet-name>SystemServiceServlet</servlet-name>
+		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+		<init-param>
+			<param-name>services</param-name>
+			<param-value>com.fyp.widerst.endpoint.DataPieceEndpoint,com.fyp.widerst.endpoint.DeviceInfoEndpoint</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SystemServiceServlet</servlet-name>
+		<url-pattern>/_ah/spi/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BlobstoreUploadHandler</servlet-name>
+		<servlet-class>com.fyp.widerst.handler.BlobstoreUploadHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BlobstoreUploadHandler</servlet-name>
+		<url-pattern>/uploadHandler</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BackendJoinerHandler</servlet-name>
+		<servlet-class>com.fyp.widerst.backend.FileJoinerBackend</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BackendJoinerHandler</servlet-name>
+		<url-pattern>/joinFile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CronJobServlet</servlet-name>
+		<servlet-class>com.fyp.widerst.cron.CronJobServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CronJobServlet</servlet-name>
+		<url-pattern>/checkBlobs</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>WholeFileServer</servlet-name>
+		<servlet-class>com.fyp.widerst.servlet.WholeFileServer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WholeFileServer</servlet-name>
+		<url-pattern>/serveWhole</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>appstats</servlet-name>
+		<servlet-class>com.google.appengine.tools.appstats.AppstatsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>appstats</servlet-name>
+		<url-pattern>/appstats/*</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>ObjectifyFilter</filter-name>
+		<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ObjectifyFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>appstats</filter-name>
+		<filter-class>com.google.appengine.tools.appstats.AppstatsFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>appstats</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

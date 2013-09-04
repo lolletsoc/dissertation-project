@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.4'
+    }
+}
+apply plugin: 'android'
+
+dependencies {
+    compile files('../../../../../resilience_android/libs/protobuf-java-2.5.0.jar')
+    compile files('../../../../../resilience_android/libs/jmdns-3.4.1.jar')
+}
+
+android {
+    compileSdkVersion 16
+    buildToolsVersion "16"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 17
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src','endpoint-libs/libregister-v1/register/register-v1-generated-source','endpoint-libs/libwiderst-v1/widerst/widerst-v1-generated-source']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        instrumentTest.setRoot('tests')
+    }
+}

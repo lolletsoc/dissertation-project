@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/start_camera_menu_item"
+        android:icon="@drawable/ic_add_new_video"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_item_record">
+    </item>
+    <item
+        android:id="@+id/add_file_menu_item"
+        android:icon="@drawable/ic_add_new_file"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_item_add">
+    </item>
+    <item
+        android:id="@+id/start_licence_menu_item"
+        android:showAsAction="never"
+        android:title="@string/menu_item_licences">
+    </item>
+    <item
+        android:id="@+id/start_settings_menu_item"
+        android:showAsAction="never"
+        android:title="@string/menu_item_settings">
+    </item>
+
+</menu>

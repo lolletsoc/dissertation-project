@@ -1,0 +1,8 @@
+#Android
+/bin
+/gen
+
+#Eclipse
+.classpath
+.project
+.settings

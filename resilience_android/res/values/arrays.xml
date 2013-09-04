@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- PIECE SIZE -->
+    <string-array name="piece_size_list_value">
+        <item>1048675</item>
+        <item>2097152</item>
+        <item>4194304</item>
+        <item>8388608</item>
+        <item>16777216</item>
+        <item>33554432</item>
+    </string-array>
+    <string-array name="piece_size_list_entry">
+        <item>1 Megabyte</item>
+        <item>2 Megabytes</item>
+        <item>4 Megabytes</item>
+        <item>8 Megabytes</item>
+        <item>16 Megabytes</item>
+        <item>32 Megabytes</item>
+    </string-array>
+
+</resources>

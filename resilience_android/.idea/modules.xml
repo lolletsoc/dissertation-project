@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/endpoint-libs/libregister-v1/register/register.iml" filepath="$PROJECT_DIR$/endpoint-libs/libregister-v1/register/register.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resilience_android.iml" filepath="$PROJECT_DIR$/resilience_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/endpoint-libs/libwiderst-v1/widerst/widerst.iml" filepath="$PROJECT_DIR$/endpoint-libs/libwiderst-v1/widerst/widerst.iml" />
+    </modules>
+  </component>
+</project>
+
